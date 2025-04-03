@@ -26,7 +26,7 @@ def extrair_nfs_pdf(pdf_file):
                 if palavra.isdigit() and 1 <= len(palavra) <= 9:
                     nfs_extraidas.add(palavra)
     
-    return sorted(list(nfs_extraidas)), len(pdf_reader.pages)
+    return nfs_extraidas, len(pdf_reader.pages)
 
 def carregar_nfs_excel(excel_file):
     """Carrega a lista de NFs do arquivo Excel."""
@@ -87,7 +87,7 @@ def main():
             with tab3:
                 st.write("Lista completa de NFs no PDF:")
                 if nfs_pdf:
-                    st.write(nfs_pdf)
+                    st.write(sorted(list(nfs_pdf)))
                 else:
                     st.write("Nenhuma NF encontrada no PDF")
             
@@ -127,4 +127,4 @@ def main():
             st.error(f"Ocorreu um erro ao processar os arquivos: {str(e)}")
 
 if __name__ == "__main__":
-    main() 
+    main()
