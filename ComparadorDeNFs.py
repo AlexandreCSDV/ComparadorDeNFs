@@ -19,11 +19,11 @@ def extrair_nfs_pdf(pdf_file):
             continue
             
         if encontrou_nota:
-            # Tenta encontrar números que parecem NFs (6-7 dígitos)
+            # Tenta encontrar números que parecem NFs (1-9 dígitos)
             palavras = linha.split()
             for palavra in palavras:
-                # Filtra apenas números com 6-7 dígitos
-                if palavra.isdigit() and 6 <= len(palavra) <= 7:
+                # Filtra apenas números com 1-9 dígitos
+                if palavra.isdigit() and 1 <= len(palavra) <= 9:
                     nfs_extraidas.add(palavra)
     
     return sorted(list(nfs_extraidas)), len(pdf_reader.pages)
