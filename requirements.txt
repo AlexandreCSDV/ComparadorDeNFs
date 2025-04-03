@@ -1,0 +1,3 @@
+pyPDF2
+pandas
+io
